@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Board from "./Board";
 import "./Game.css";
 
@@ -74,6 +74,10 @@ function Game() {
     const turnRef = useRef(1);
     const oStateMapRef = useRef(initializePlayerStateMap());
     const xStateMapRef = useRef(initializePlayerStateMap());
+
+    useEffect(() => {
+        console.log("Game rendered");
+    });
 
     return (
         <div className="game">
