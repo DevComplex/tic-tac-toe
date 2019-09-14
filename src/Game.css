@@ -1,0 +1,19 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-detail {
+    margin-bottom: 20px;
+}
+
+.reset-game-button {
+    margin-top: 40px;
+    width: 100px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
