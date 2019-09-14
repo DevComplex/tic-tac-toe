@@ -70,14 +70,14 @@ function Game() {
     const [player, setPlayer] = useState('O');
     const [board, setBoard] = useState(new Array(9).fill(""));
     const [winner, setWinner] = useState(null);
-    const [turn, setTurn] = useState(1);
 
+    const turnRef = useRef(1);
     const oStateMapRef = useRef(initializePlayerStateMap());
     const xStateMapRef = useRef(initializePlayerStateMap());
 
     return (
         <div className="game">
-            {renderGameDetail(winner, turn, player)}
+            {renderGameDetail(winner, turnRef.current, player)}
             <Board
                 board={board}
                 onBoxClick={(index) => {
@@ -105,7 +105,7 @@ function Game() {
                         setPlayer(nextPlayer);
                     }
 
-                    setTurn(turn + 1);
+                    turnRef.current++;
                 }}
             />
             <button className="reset-game-button"
@@ -113,8 +113,8 @@ function Game() {
                     setPlayer("O");
                     setBoard(new Array(9).fill(""));
                     setWinner(null);
-                    setTurn(1);
 
+                    turnRef.current = 1;
                     oStateMapRef.current = initializePlayerStateMap();
                     xStateMapRef.current = initializePlayerStateMap();
                 }}
